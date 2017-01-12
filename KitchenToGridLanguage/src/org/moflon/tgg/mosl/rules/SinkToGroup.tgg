@@ -1,0 +1,23 @@
+#using KitchenToGridLanguage.*
+#using AttrCondDefLibrary.*
+
+#rule SinkToGroup #with KitchenToGridLanguage
+
+#source {
+	++sink : Sink
+}
+
+#target {	
+	++group : Group
+}
+
+#correspondence {
+	++sinkToGroup : SinkToGroupCorr{
+		#src-> sink
+		#trg-> group
+	}
+}
+
+#attributeConditions {	
+	setId(sink.id)
+}

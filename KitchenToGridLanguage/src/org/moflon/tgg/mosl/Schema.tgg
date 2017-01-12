@@ -1,0 +1,38 @@
+// Add imports here
+#import "platform:/plugin/GridLanguage/model/GridLanguage.ecore"
+#import "platform:/plugin/KitchenLanguage/model/KitchenLanguage.ecore"
+
+#schema KitchenToGridLanguage
+	
+#source {
+	KitchenLanguage	
+}
+ 
+#target { 
+	GridLanguage
+} 
+
+#correspondence {
+	KitchenToGridCorr{
+		#src->Kitchen
+		#trg->Grid
+	}
+	
+	SinkToGroupCorr{
+		#src->Sink
+		#trg->Group
+	}
+}
+
+#attributeConditions {
+	#userDefined 
+	setId(0:EInt){
+		#sync: F, B
+	}
+	
+	#userDefined
+	posToIndex(0:blockSize, 1:yPos, 2:yIndex){
+		#sync: BFB, BBF, BBB		
+	}
+	
+}
