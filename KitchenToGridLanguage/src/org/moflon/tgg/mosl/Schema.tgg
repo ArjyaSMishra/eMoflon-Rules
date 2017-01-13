@@ -31,7 +31,7 @@
 	}
 	
 	#userDefined
-	posToIndex(0:blockSize, 1:yPos, 2:yIndex){
+	posToIndex(0:EDouble, 1:EDouble, 2:EInt){
 		#sync: BFB, BBF, BBB		
 	}
 	

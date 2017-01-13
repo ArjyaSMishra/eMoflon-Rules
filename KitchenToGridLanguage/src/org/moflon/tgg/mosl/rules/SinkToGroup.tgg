@@ -4,20 +4,60 @@
 #rule SinkToGroup #with KitchenToGridLanguage
 
 #source {
-	++sink : Sink
+	
+	kitchen: Kitchen{
+		++ -items-> sink
+	}
+	
+	++sink : Sink	
+	
 }
 
 #target {	
-	++group : Group
+	
+	grid: Grid{
+		++-groups->group
+		-blocks->sinkBlock
+		-blocks->sinkSpace
+	}
+	
+	++ group : Group {
+		++ -occupies->sinkBlock
+		++ -occupies->sinkSpace
+	}
+	
+	sinkBlock : Block {
+		 -e-> sinkSpace
+		 -w->noBlock
+		 -isOccupiedBy->noGroup1
+	}
+	
+	!noGroup1:Group
+	!noGroup2:Group
+	
+	!noBlock:Block
+	
+	sinkSpace : Block {
+		-isOccupiedBy->noGroup2
+	}
 }
 
 #correspondence {
+	kitchenToGrid: KitchenToGridCorr{
+		#src-> kitchen
+		#trg-> grid
+	}
+	
 	++sinkToGroup : SinkToGroupCorr{
 		#src-> sink
 		#trg-> group
 	}
+	
 }
 
 #attributeConditions {	
 	setId(sink.id)
+	setDefaultNumber(sink.xPos, 0)
+	smallerOrEqual(sink.xPos, grid.blockSize)
+	posToIndex(grid.blockSize, sink.yPos, sinkBlock.yIndex)
 }

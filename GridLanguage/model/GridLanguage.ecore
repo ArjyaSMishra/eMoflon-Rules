@@ -11,7 +11,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Group">
     <eStructuralFeatures xsi:type="ecore:EReference" name="occupies" lowerBound="1"
-        upperBound="-1" eType="#//Block"/>
+        upperBound="-1" eType="#//Block" eOpposite="#//Block/isOccupiedBy"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xIndex" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -24,5 +24,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="sw" eType="#//Block" eOpposite="#//Block/ne"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nw" eType="#//Block" eOpposite="#//Block/se"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="se" eType="#//Block" eOpposite="#//Block/nw"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isOccupiedBy" eType="#//Group"
+        eOpposite="#//Group/occupies"/>
   </eClassifiers>
 </ecore:EPackage>
