@@ -4,23 +4,23 @@
 
 #schema KitchenToGridLanguage
 	
-#source {
-	KitchenLanguage	
+#source {		
+	GridLanguage
 }
  
 #target { 
-	GridLanguage
+	KitchenLanguage
 } 
 
 #correspondence {
 	KitchenToGridCorr{
-		#src->Kitchen
-		#trg->Grid
+		#src->Grid
+		#trg->Kitchen
 	}
 	
 	SinkToGroupCorr{
-		#src->Sink
-		#trg->Group
+		#src->Group
+		#trg->Sink
 	}
 }
 

@@ -5,16 +5,6 @@
 
 #source {
 	
-	kitchen: Kitchen{
-		++ -items-> sink
-	}
-	
-	++sink : Sink	
-	
-}
-
-#target {	
-	
 	grid: Grid{
 		++-groups->group
 		-blocks->sinkBlock
@@ -40,17 +30,28 @@
 	sinkSpace : Block {
 		-isOccupiedBy->noGroup2
 	}
+
+}
+
+#target {	
+	
+	kitchen: Kitchen{
+		++ -items-> sink
+	}
+	
+	++sink : Sink
+	
 }
 
 #correspondence {
 	kitchenToGrid: KitchenToGridCorr{
-		#src-> kitchen
-		#trg-> grid
+		#src-> grid 
+		#trg-> kitchen
 	}
 	
 	++sinkToGroup : SinkToGroupCorr{
-		#src-> sink
-		#trg-> group
+		#src-> group 
+		#trg-> sink
 	}
 	
 }

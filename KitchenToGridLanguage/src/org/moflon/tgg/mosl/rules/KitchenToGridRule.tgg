@@ -4,20 +4,23 @@
 #rule KitchenToGridRule #with KitchenToGridLanguage
 
 #source { 
-	++kitchen : Kitchen
+	++grid : Grid
+	
 }
 
 #target {
-	++grid : Grid
+	++kitchen : Kitchen
 }
 
 #correspondence {
 	++kitchenToGrid : KitchenToGridCorr{
-		#src-> kitchen
-		#trg-> grid
+		#src-> grid
+		#trg-> kitchen
 	}
 }
 
 #attributeConditions {
 	setDefaultNumber(grid.blockSize, 100)
+	setDefaultNumber(kitchen.xSize, 500)
+	setDefaultNumber(kitchen.ySize, 500)
 }

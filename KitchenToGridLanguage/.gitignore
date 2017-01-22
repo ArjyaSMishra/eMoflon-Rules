@@ -4,3 +4,4 @@
 /model/*.genmodel
 /model/*.xmi
 !/**/.keep*
+.settings
