@@ -22,6 +22,11 @@
 		#src->Group
 		#trg->Sink
 	}
+	
+	TableToGroupCorr{
+		#src->Group
+		#trg->Table
+	}
 }
 
 #attributeConditions {

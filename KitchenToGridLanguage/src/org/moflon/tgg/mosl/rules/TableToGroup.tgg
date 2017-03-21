@@ -1,0 +1,62 @@
+#using KitchenToGridLanguage.*
+#using AttrCondDefLibrary.*
+
+#rule TableToGroup #with KitchenToGridLanguage
+
+#source {
+	
+	grid: Grid{
+		++-groups->group
+		-blocks->verTableBlock1
+		-blocks->verTableBlock2
+	}
+	
+	++ group : Group {
+		++ -occupies->verTableBlock1
+		++ -occupies->verTableBlock2
+	}
+	
+	verTableBlock1 : Block {
+		 -s-> verTableBlock2
+		 -isOccupiedBy->noGroup1
+	}
+	
+	!noGroup1:Group
+	!noGroup2:Group
+	
+	
+	
+	verTableBlock2 : Block {
+		-isOccupiedBy->noGroup2
+	}
+
+}
+
+#target {	
+	
+	kitchen: Kitchen{
+		++ -items-> table
+	}
+	
+	++table : Table
+	
+}
+
+#correspondence {
+	kitchenToGrid: KitchenToGridCorr{
+		#src-> grid 
+		#trg-> kitchen
+	}
+	
+	++tableToGroup : TableToGroupCorr{
+		#src-> group 
+		#trg-> table
+	}
+	
+}
+
+#attributeConditions {	
+	setId(table.id)
+	posToIndex(grid.blockSize, table.yPos, verTableBlock1.yIndex)
+	posToIndex(grid.blockSize, table.xPos, verTableBlock1.xIndex)
+}
