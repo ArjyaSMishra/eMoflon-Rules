@@ -5,15 +5,19 @@
   <eClassifiers xsi:type="ecore:EClass" name="Kitchen">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xSize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ySize" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="items" lowerBound="1" upperBound="-1"
-        eType="#//Item" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="itemSockets" upperBound="-1"
+        eType="#//ItemSocket" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Item" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xPos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="yPos" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sink" eSuperTypes="#//Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Item"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ItemSocket">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="" iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1" eType="#//Item"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

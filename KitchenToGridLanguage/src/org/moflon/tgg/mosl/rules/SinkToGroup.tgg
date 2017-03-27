@@ -6,12 +6,12 @@
 #source {
 	
 	grid: Grid{
-		++-groups->group
+		-groups->group
 		-blocks->sinkBlock
 		-blocks->sinkSpace
 	}
 	
-	++ group : Group {
+	 group : Group {
 		++ -occupies->sinkBlock
 		++ -occupies->sinkSpace
 	}
@@ -36,7 +36,12 @@
 #target {	
 	
 	kitchen: Kitchen{
-		++ -items-> sink
+	 -itemSockets-> itemSocket
+		
+	}
+	
+	itemSocket : ItemSocket{
+		++ -item-> sink
 	}
 	
 	++sink : Sink
@@ -49,15 +54,15 @@
 		#trg-> kitchen
 	}
 	
-	++sinkToGroup : SinkToGroupCorr{
+	socketToGroup : SocketToGroupCorr{
 		#src-> group 
-		#trg-> sink
+		#trg-> itemSocket
 	}
 	
 }
 
 #attributeConditions {	
-	setId(sink.id)
+	setId(itemSocket.id)
 	setDefaultNumber(sink.xPos, 0)
 	smallerOrEqual(sink.xPos, grid.blockSize)
 	posToIndex(grid.blockSize, sink.yPos, sinkBlock.yIndex)

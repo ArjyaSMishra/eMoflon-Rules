@@ -18,14 +18,9 @@
 		#trg->Kitchen
 	}
 	
-	SinkToGroupCorr{
+	SocketToGroupCorr{
 		#src->Group
-		#trg->Sink
-	}
-	
-	TableToGroupCorr{
-		#src->Group
-		#trg->Table
+		#trg->ItemSocket
 	}
 }
 

@@ -6,12 +6,12 @@
 #source {
 	
 	grid: Grid{
-		++-groups->group
+		-groups->group
 		-blocks->verTableBlock1
 		-blocks->verTableBlock2
 	}
 	
-	++ group : Group {
+	 group : Group {
 		++ -occupies->verTableBlock1
 		++ -occupies->verTableBlock2
 	}
@@ -35,9 +35,14 @@
 #target {	
 	
 	kitchen: Kitchen{
-		++ -items-> table
+	 -itemSockets-> itemSocket
+		
 	}
 	
+	itemSocket : ItemSocket{
+		++ -item-> table
+	}
+
 	++table : Table
 	
 }
@@ -48,15 +53,15 @@
 		#trg-> kitchen
 	}
 	
-	++tableToGroup : TableToGroupCorr{
+	socketToGroup : SocketToGroupCorr{
 		#src-> group 
-		#trg-> table
+		#trg-> itemSocket
 	}
 	
 }
 
 #attributeConditions {	
-	setId(table.id)
+	setId(itemSocket.id)
 	posToIndex(grid.blockSize, table.yPos, verTableBlock1.yIndex)
 	posToIndex(grid.blockSize, table.xPos, verTableBlock1.xIndex)
 }
