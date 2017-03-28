@@ -1,4 +1,4 @@
-package csp.constraints;
+package KitchenToGridLanguage.csp.constraints;
 
 import java.util.UUID;
 
