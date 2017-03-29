@@ -20,4 +20,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="item" lowerBound="1" eType="#//Item"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Window" eSuperTypes="#//Item"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Door" eSuperTypes="#//Item"/>
 </ecore:EPackage>

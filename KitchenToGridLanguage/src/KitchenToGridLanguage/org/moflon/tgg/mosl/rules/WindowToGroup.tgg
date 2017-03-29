@@ -1,0 +1,8 @@
+#using KitchenToGridLanguage.*
+#using AttrCondDefLibrary.*
+
+#rule WindowToGroup #extends ItemToGroup #with KitchenToGridLanguage 
+
+#target {
+	++i:Window
+}

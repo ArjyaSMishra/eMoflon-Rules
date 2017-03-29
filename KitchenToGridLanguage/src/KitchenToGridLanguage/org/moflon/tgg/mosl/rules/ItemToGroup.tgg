@@ -1,0 +1,52 @@
+#using KitchenToGridLanguage.*
+#using AttrCondDefLibrary.*
+
+#abstract #rule ItemToGroup #with KitchenToGridLanguage
+
+#source {
+	
+	grid: Grid{
+		-groups->group
+		-blocks->b
+	}
+	
+	 group : Group {
+		++ -occupies->b
+	}
+	
+	b : Block
+}
+
+#target {	
+	
+	kitchen: Kitchen{
+	 -itemSockets-> itemSocket
+		
+	}
+	
+	itemSocket : ItemSocket{
+		++ -item-> i
+	}
+
+	++i: Item
+	
+}
+
+#correspondence {
+	kitchenToGrid: KitchenToGridCorr{
+		#src-> grid 
+		#trg-> kitchen
+	}
+	
+	socketToGroup : SocketToGroupCorr{
+		#src-> group 
+		#trg-> itemSocket
+	}
+	
+}
+
+#attributeConditions {	
+	setId(itemSocket.id)
+	posToIndex(grid.blockSize, i.yPos, b.yIndex)
+	posToIndex(grid.blockSize, i.xPos, b.xIndex)
+}

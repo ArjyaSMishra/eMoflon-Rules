@@ -1,0 +1,8 @@
+#using KitchenToGridLanguage.*
+#using AttrCondDefLibrary.*
+
+#rule DoorToGroup #extends ItemToGroup #with KitchenToGridLanguage
+
+#target {
+	++ i : Door
+} 
