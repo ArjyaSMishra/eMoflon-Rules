@@ -1,0 +1,26 @@
+Kontextangabe:
+--------------
+
+1.  Ein großer Esstisch ist wahrscheinlich etwas größer als ein Fenster oder Tür.  
+    Versuch doch die Regel für den Tisch (Table) so anzupassen, dass er zwei vertikale Blöcke besetzt.
+
+2.  Man sollte eigentlich vor der Spüle stehen können oder?  Versuch die Regel für die Spüle so anzupassen, dass sie zwei horizontale Blöcke besetzt.
+
+3.  Wollen wir verlangen, dass man die Spüle nur vor einem Fenster stellen kann?
+
+4.  Wie wäre es damit zu verlangen, dass der Tisch *nicht* direkt an einer Wand steht?
+
+
+Negative Kontextangabe:
+-----------------------
+
+1.  Ist es nicht blöd, wie man Gegenstände beliebig aufeinander stapeln kann?  Versuchen wir dies zu verbieten!
+
+2.  Sorgen wir dafür, dass man Fenster nur an der westlichen Wand platzieren kann.
+
+3.  Genauso sollten Türen nur an der südlichen Wand platziert werden können.
+
+4.  Verbieten wir mehr als eine Tür in der Küche!
+
+
+Eigene Vorstellungen? :)
