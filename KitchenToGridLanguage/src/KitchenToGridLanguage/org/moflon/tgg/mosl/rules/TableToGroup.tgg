@@ -1,7 +1,21 @@
 #using KitchenToGridLanguage.*
 #using AttrCondDefLibrary.*
 
-#rule TableToGroup #extends ItemToGroup #with KitchenToGridLanguage
+#rule TableToGroup 
+#extends ItemToGroup 
+#with KitchenToGridLanguage
+
+#source {
+	b:Block{
+		-e->be
+	}
+	
+	be:Block
+	
+	group:Group {
+		++ -occupies->be
+	}
+}
 
 #target {
 	++ i:Table	
