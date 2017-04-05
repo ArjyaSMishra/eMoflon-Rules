@@ -62,8 +62,7 @@
 }
 
 #attributeConditions {	
-	setId(itemSocket.id)
-	setDefaultNumber(sink.xPos, 0)
-	smallerOrEqual(sink.xPos, grid.blockSize)
+	eq(sinkBlock.xIndex, 0)
 	posToIndex(grid.blockSize, sink.yPos, sinkBlock.yIndex)
+	posToIndex(grid.blockSize, sink.xPos, sinkBlock.xIndex)
 }

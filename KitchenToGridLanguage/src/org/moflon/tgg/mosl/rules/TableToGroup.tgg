@@ -61,7 +61,6 @@
 }
 
 #attributeConditions {	
-	setId(itemSocket.id)
 	posToIndex(grid.blockSize, table.yPos, verTableBlock1.yIndex)
 	posToIndex(grid.blockSize, table.xPos, verTableBlock1.xIndex)
 }
