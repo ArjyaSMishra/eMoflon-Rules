@@ -1,0 +1,66 @@
+#using KitchenToGridLanguage.*
+#using AttrCondDefLibrary.*
+
+#rule FridgeToGroup #with KitchenToGridLanguage
+
+#source {
+	
+	grid: Grid{
+		-groups->group
+		-blocks->verFridgeBlock1
+		-blocks->verFridgeBlock2
+	}
+	
+	 group : Group {
+		++ -occupies->verFridgeBlock1
+		++ -occupies->verFridgeBlock2
+	}
+	
+	verFridgeBlock1 : Block {
+		 -s-> verFridgeBlock2
+		 -isOccupiedBy->noGroup1
+	}
+	
+	!noGroup1:Group
+	!noGroup2:Group
+	
+	
+	
+	verFridgeBlock2 : Block {
+		-isOccupiedBy->noGroup2
+	}
+
+}
+
+#target {	
+	
+	kitchen: Kitchen{
+	 -itemSockets-> itemSocket
+		
+	}
+	
+	itemSocket : ItemSocket{
+		++ -item-> fridge
+	}
+
+	++fridge : Fridge
+	
+}
+
+#correspondence {
+	kitchenToGrid: KitchenToGridCorr{
+		#src-> grid 
+		#trg-> kitchen
+	}
+	
+	socketToGroup : SocketToGroupCorr{
+		#src-> group 
+		#trg-> itemSocket
+	}
+	
+}
+
+#attributeConditions {	
+	posToIndex(grid.blockSize, fridge.yPos, verFridgeBlock1.yIndex)
+	posToIndex(grid.blockSize, fridge.xPos, verFridgeBlock1.xIndex)
+}
