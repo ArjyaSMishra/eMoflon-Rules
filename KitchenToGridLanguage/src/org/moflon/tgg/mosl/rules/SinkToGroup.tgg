@@ -1,68 +1,20 @@
 #using KitchenToGridLanguage.*
 #using AttrCondDefLibrary.*
 
-#rule SinkToGroup #with KitchenToGridLanguage
+#rule SinkToGroup #extends CreateHorizontalItem #with KitchenToGridLanguage
 
 #source {
-	
-	grid: Grid{
-		-groups->group
-		-blocks->sinkBlock
-		-blocks->sinkSpace
-	}
-	
-	 group : Group {
-		++ -occupies->sinkBlock
-		++ -occupies->sinkSpace
-	}
-	
-	sinkBlock : Block {
-		 -e-> sinkSpace
+	firstBlock : Block {
 		 -w->noBlock
-		 -isOccupiedBy->noGroup1
 	}
-	
-	!noGroup1:Group
-	!noGroup2:Group
 	
 	!noBlock:Block
-	
-	sinkSpace : Block {
-		-isOccupiedBy->noGroup2
-	}
-
 }
 
 #target {	
-	
-	kitchen: Kitchen{
-	 -itemSockets-> itemSocket
-		
-	}
-	
-	itemSocket : ItemSocket{
-		++ -item-> sink
-	}
-	
-	++sink : Sink
-	
-}
-
-#correspondence {
-	kitchenToGrid: KitchenToGridCorr{
-		#src-> grid 
-		#trg-> kitchen
-	}
-	
-	socketToGroup : SocketToGroupCorr{
-		#src-> group 
-		#trg-> itemSocket
-	}
-	
+	++item:Sink
 }
 
 #attributeConditions {	
-	eq(sinkBlock.xIndex, 0)
-	posToIndex(grid.blockSize, sink.yPos, sinkBlock.yIndex)
-	posToIndex(grid.blockSize, sink.xPos, sinkBlock.xIndex)
+	eq(firstBlock.xIndex, 0)
 }

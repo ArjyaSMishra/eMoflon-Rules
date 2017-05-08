@@ -1,0 +1,10 @@
+#using KitchenToGridLanguage.*
+#using AttrCondDefLibrary.*
+
+#rule HorizontalTableToGroup #extends CreateHorizontalItem #with KitchenToGridLanguage
+
+#target {	
+	++item : Table
+}
+
+

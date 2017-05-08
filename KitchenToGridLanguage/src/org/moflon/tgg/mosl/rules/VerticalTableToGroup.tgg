@@ -1,0 +1,8 @@
+#using KitchenToGridLanguage.*
+#using AttrCondDefLibrary.*
+
+#rule VerticalTableToGroup #extends CreateVerticalItem #with KitchenToGridLanguage
+
+#target {	
+	++item : Table
+}
