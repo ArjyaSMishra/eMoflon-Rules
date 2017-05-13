@@ -1,7 +1,7 @@
 #using KitchenToGridLanguage.*
 #using AttrCondDefLibrary.*
 
-#rule SinkToGroup #extends CreateHorizontalItem #with KitchenToGridLanguage
+#rule create_a_sink #extends CreateHorizontalItem #with KitchenToGridLanguage
 
 #source {
 	firstBlock : Block {

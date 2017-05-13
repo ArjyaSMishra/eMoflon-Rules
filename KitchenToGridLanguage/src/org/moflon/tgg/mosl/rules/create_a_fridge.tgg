@@ -1,7 +1,7 @@
 #using KitchenToGridLanguage.*
 #using AttrCondDefLibrary.*
 
-#rule FridgeToGroup #extends CreateVerticalItem #with KitchenToGridLanguage
+#rule create_a_fridge #extends CreateVerticalItem #with KitchenToGridLanguage
 
 #source {
 	firstBlock : Block {

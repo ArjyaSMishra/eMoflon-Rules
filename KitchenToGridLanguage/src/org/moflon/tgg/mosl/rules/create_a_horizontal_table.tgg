@@ -1,7 +1,7 @@
 #using KitchenToGridLanguage.*
 #using AttrCondDefLibrary.*
 
-#rule HorizontalTableToGroup #extends CreateHorizontalItem #with KitchenToGridLanguage
+#rule create_a_horizontal_table #extends CreateHorizontalItem #with KitchenToGridLanguage
 
 #target {	
 	++item : Table
